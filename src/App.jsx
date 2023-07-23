@@ -5,7 +5,7 @@ import { reducer } from './Context'
 export const TaskContext = createContext()
 const App = () => {
 
-    const initialState = JSON.parse(localStorage.getItem('actions') ?? [])
+    const initialState = JSON.parse(localStorage.getItem('actions')) ?? [{ name: "New todo ❤", id: "1267833653", isComplete: true }]
 
     const [todo, dispatch] = useReducer(reducer, initialState);
     const [theme, setTheme] = useState("light")

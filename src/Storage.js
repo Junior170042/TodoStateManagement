@@ -1,4 +1,4 @@
-const oldItems = JSON.parse(localStorage.getItem('actions'));
+const oldItems = JSON.parse(localStorage.getItem('actions')) ?? [];
 export const setItems = (items) => {
 
     const receive_items = removeDuplicates(items);

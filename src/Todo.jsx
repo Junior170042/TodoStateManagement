@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { useState } from "react"
 import TodoItem from './TodoItem'
 import Modal from './Modal'
@@ -11,6 +11,7 @@ const Todo = () => {
     const { todo, dispatch, modal, setModal, theme, setTheme } = useContext(TaskContext)
 
     const [name, setName] = useState("");
+    const todoRef = useRef(null)
 
 
     const newTodo = (name) => {
@@ -21,10 +22,15 @@ const Todo = () => {
         }
     }
 
+    useEffect(() => {
+        todoRef.current.focus()
+    }, [])
+
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch({ type: ACTIONS.ADD_TODO, payload: newTodo(name) })
-
+        e.target.reset()
+        todoRef.current.focus()
     }
 
 
@@ -40,7 +46,7 @@ const Todo = () => {
             <div className='container'>
                 <h1 className="title">Todo aplication</h1>
                 <form onSubmit={handleSubmit} className='todoForm'>
-                    <input type="text" placeholder='Add todo..' onChange={(e) => setName(e.target.value)} name="todo" />
+                    <input ref={todoRef} type="text" placeholder='Add todo..' onChange={(e) => setName(e.target.value)} name="todo" />
                     <button className='addTodo'>Add todo</button>
                 </form>
 
@@ -48,7 +54,7 @@ const Todo = () => {
                     {todo.length != 0 && todo.map(todo => <TodoItem setModal={setModal} key={todo.id} todo={todo} dispatch={dispatch}></TodoItem >)}
                 </div>
             </div>
-            {modal.status && <Modal todo={modal.todo} />}
+            {modal.status && <Modal ref={todoRef} todo={modal.todo} />}
         </>
     )
 }

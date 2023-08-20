@@ -50,9 +50,9 @@ export const updateTodo = (type, todo) => {
 
 
 const removeDuplicates = (arr) => {
-    var hash = {};
+    const hash = {};
     return arr.filter((current) => {
-        var exists = !hash[current.name];
+        const exists = !hash[current.name];
         hash[current.name] = true;
         return exists;
     });

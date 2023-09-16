@@ -15,6 +15,13 @@ export const setItems = (items) => {
 
 }
 
+export const saveTheme = (theme) => {
+
+    localStorage.removeItem('theme')
+
+    localStorage.setItem('theme', theme)
+}
+
 const saveTodos = (todo) => {
     localStorage.setItem("actions", JSON.stringify(todo));
 }

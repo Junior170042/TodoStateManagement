@@ -37,7 +37,8 @@ const Todo = () => {
     return (
         <>
             <div className='toggleTheme'>
-                <input onChange={() => setTheme(theme == "light" ? "dark" : "light")} type="checkbox" checked={theme == "dark" ? true : false} id="toggle_checkbox" />
+                <input onChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                    type="checkbox" checked={theme == "dark" ? true : false} id="toggle_checkbox" />
 
                 <label htmlFor="toggle_checkbox">
 

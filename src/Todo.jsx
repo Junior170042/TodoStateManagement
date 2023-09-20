@@ -45,7 +45,7 @@ const Todo = () => {
                 </label>
             </div>
             <div className='container'>
-                <h1 className="title">Todo aplication</h1>
+                <h1 className="title">Todo Application</h1>
                 <form onSubmit={handleSubmit} className='todoForm'>
                     <input ref={todoRef} type="text" placeholder='Add todo..' onChange={(e) => setName(e.target.value)} name="todo" />
                     <button className='addTodo'>Add todo</button>

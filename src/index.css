@@ -408,11 +408,11 @@ input:checked + label:after {
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-  .container .todo_container .todoItem{
+  .light .container .todo_container .todoItem, .dark .container .todo_container .todoItem{
     width: 100%;
   }
 
-  .container .todo_container{
+  .light .container .todo_container, .dark .container .todo_container{
     padding: 20px;
   }
 
@@ -429,20 +429,21 @@ input:checked + label:after {
 }
 
 
-@media screen and (max-width: 412px) {
-  .container .todoForm{
+@media screen and (max-width: 420px) {
+  .light .container .todoForm, .dark .container .todoForm{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center ;
   }
 
-   .container .todoForm input{
+   .light .container .todoForm input, .dark .container .todoForm input{
     width: 95%;
+    margin-left: 20px;
     margin-bottom: 14px;
    }
 
-   .container .todoForm button{
+   .light .container .todoForm button,.dark .container .todoForm button{
     width: 60%;
    }
 }
